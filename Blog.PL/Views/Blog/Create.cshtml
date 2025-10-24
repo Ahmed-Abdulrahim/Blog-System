@@ -1,0 +1,33 @@
+﻿@model BlogPost
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create POST</h1>
+
+<form asp-action="Create">
+    <div>
+        <label asp-for="Title" class="col-form-label" ></label>
+        <input asp-for="Title" placeholder="Enter TiTle" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Content" class="col-form-label"></label>
+        <textarea asp-for="Content" placeholder="Enter TiTle" class="form-control" rows="4" ></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="PublishedDate" class="col-form-label"></label>
+        <input asp-for="PublishedDate" placeholder="Enter TiTle" class="form-control" rows="4" />
+        <span asp-validation-for="PublishedDate" class="text-danger"></span>
+    </div>
+    <div class="m-2">
+     
+        <input type="submit" value="Create" class="btn btn-success" />
+        <a asp-action="Index" class="btn btn-warning">Back to List</a>
+    </div>
+</form>
+@section ValidateData {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

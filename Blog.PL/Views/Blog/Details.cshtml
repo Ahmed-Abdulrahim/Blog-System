@@ -1,0 +1,27 @@
+﻿@model BlogPost
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<form>
+    <div>
+        <label asp-for="Title" class="col-form-label"></label>
+        <input asp-for="Title" placeholder="Enter TiTle" class="form-control" readonly/>
+       
+    </div>
+    <div>
+        <label asp-for="Content" class="col-form-label"></label>
+        <textarea asp-for="Content" placeholder="Enter TiTle" class="form-control" rows="4" readonly></textarea>
+       
+    </div>
+    <div>
+        <label asp-for="PublishedDate" class="col-form-label"></label>
+        <input asp-for="PublishedDate" placeholder="Enter TiTle" class="form-control" rows="4" readonly/>
+       
+    </div>
+    <div class="m-2">      
+        <a asp-action="Index" class="btn btn-warning">Back To List</a>
+    </div>
+  </form>

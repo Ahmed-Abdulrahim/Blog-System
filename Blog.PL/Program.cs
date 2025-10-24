@@ -1,4 +1,7 @@
+using Blog.BLL.Interface;
+using Blog.BLL.Repo;
 using Blog.DAL;
+using Blog.DAL.models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.PL
@@ -11,6 +14,7 @@ namespace Blog.PL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<IRepoType<BlogPost> , BlogpostRepo>();
             builder.Services.AddDbContext<BlogDbContext>(options => options.UseSqlServer(builder
                 .Configuration.GetConnectionString("conn1")));
 

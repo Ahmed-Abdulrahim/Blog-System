@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BlogPost>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Blogs</h1>
+<a asp-action="Create" class="btn btn-primary m-5">Create Post</a>
+<table class="table table-bordered table-hover text-center">
+    <thead>
+    <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Published At</th>
+            <th>Comments</th>
+            <th>Add Comment</th>
+            <th>Details</th>
+            <th>Update</th>
+            <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() > 0)
+        {
+            @foreach (var post in Model)
+            {
+              <tr>
+                  <td> @post.Title</td>
+                  <td>@post.Content</td>
+                  <td>@post.PublishedDate.ToString()</td>
+                  <td>
+                        @if (@post.Comments.Count() > 0)
+                        {
+                            <ol>
+                                @foreach (var c in @post.Comments)
+                                {
+                                    <li>c</li>
+                                }
+                            </ol>
+                        }
+                        else
+                        {
+                          <p> No Comment</p>    
+                        }
+                    </td>
+                    <td>
+                        <a class="btn btn-close-white" asp-action="Create" asp-controller="Comments" asp-route-id="@post.Id">Add Comments</a>
+                    </td>
+                  <td>
+                      <a class="btn btn-warning" asp-action="Details"  asp-route-id="@post.Id">Details</a>
+                  </td>
+                   <td>
+                      <a class="btn btn-success" asp-action="Edit"  asp-route-id="@post.Id">Update</a>
+                  </td>
+                   <td>
+                      <a class="btn btn-danger" asp-action="Delete"  asp-route-id="@post.Id">Delete</a>
+                  </td>
+              </tr>  
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7"> No Blog Posts</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+

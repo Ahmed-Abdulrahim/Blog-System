@@ -18,7 +18,7 @@ namespace Blog.DAL.models
         public string Content { get; set; }
         public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
         [ForeignKey(nameof(Users))]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public User Users { get; set; }
         public ICollection<Comment> Comments { get; set; }
     }
